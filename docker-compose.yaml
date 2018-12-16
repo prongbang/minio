@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minio-storage
+    volumes:
+      - "./volumes/minio-storage:/export"
+    ports:
+      - "9001:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6DVY3Pkc4z
+      MINIO_SECRET_KEY: FAAmZ0Evr7
+    command: server /export

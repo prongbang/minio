@@ -1,0 +1,51 @@
+version: "3.5"
+
+services:
+  minio1:
+    image: minio/minio
+    volumes:
+      - minio-storage1:/export
+    ports:
+      - "9001:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6DVY3Pkc4z
+      MINIO_SECRET_KEY: FAAmZ0Evr7
+    command: server http://minio{1...4}/export
+  minio2:
+    image: minio/minio
+    volumes:
+      - minio-storage2:/export
+    ports:
+      - "9002:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6DVY3Pkc4z
+      MINIO_SECRET_KEY: FAAmZ0Evr7
+    command: server http://minio{1...4}/export
+  minio3:
+    image: minio/minio
+    volumes:
+      - minio-storage3:/export
+    ports:
+      - "9003:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6DVY3Pkc4z
+      MINIO_SECRET_KEY: FAAmZ0Evr7
+    command: server http://minio{1...4}/export
+  minio4:
+    image: minio/minio
+    volumes:
+      - minio-storage4:/export
+    ports:
+      - "9004:9000"
+    environment:
+      MINIO_ACCESS_KEY: 6DVY3Pkc4z
+      MINIO_SECRET_KEY: FAAmZ0Evr7
+    command: server http://minio{1...4}/export
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  minio-storage1:
+  minio-storage2:
+  minio-storage3:
+  minio-storage4:
