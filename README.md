@@ -3,7 +3,7 @@
 ### Run
 
 ```
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 ### Open
@@ -16,3 +16,14 @@ docker-compose up -d
 ACCESS_KEY: 6DVY3Pkc4z
 SECRET_KEY: FAAmZ0Evr7
 ```
+
+### Example
+
+Go to `client` and run
+
+```
+$ cd client
+$ go run main.go
+```
+
+and refresh browser.
