@@ -8,7 +8,7 @@ docker-compose up -d
 
 ### Open
 
-[localhost:9001](localhost:9001)
+[localhost:9001](http://localhost:9001)
 
 ### Login
 
