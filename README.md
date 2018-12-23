@@ -27,3 +27,7 @@ $ go run main.go
 ```
 
 and refresh browser.
+
+## Reference
+
+[https://github.com/minio/minio-go/blob/master/examples/s3/presignedgetobject.go](https://github.com/minio/minio-go/blob/master/examples/s3/presignedgetobject.go)

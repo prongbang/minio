@@ -2,6 +2,8 @@ package main
 
 import (
 	"log"
+	"net/url"
+	"time"
 
 	minio "github.com/minio/minio-go"
 )
@@ -36,8 +38,8 @@ func main() {
 	}
 
 	// Upload the image file
-	objectName := "number.png"
-	filePath := "./image/number.png"
+	objectName := "minio.png"
+	filePath := "./image/minio.png"
 	contentType := "application/octet-stream"
 
 	// Upload the image file with FPutObject
@@ -45,6 +47,15 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 	log.Printf("Successfully uploaded %s of size %d\n", objectName, n)
+
+	// Set request parameters
+	reqParams := make(url.Values)
+
+	// Gernerate presigned get object url.
+	presignedURL, err := minioClient.PresignedGetObject(bucketName, objectName, time.Duration(1000)*time.Second, reqParams)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	log.Println(presignedURL)
 }
